@@ -190,6 +190,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Use jj as ESC
+vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -833,9 +836,9 @@ require('lazy').setup({
     opts = {
       transparent = true,
       styles = {
-         sidebars = "transparent",
-         floats = "transparent",
-      }
+        sidebars = 'transparent',
+        floats = 'transparent',
+      },
     },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
