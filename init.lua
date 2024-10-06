@@ -198,11 +198,14 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Use jj as ESC
 vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
 
--- Explore key
-vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { silent = true })
+-- Explorer and terminal key
+vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { silent = true, desc = 'Open netrw' })
+vim.keymap.set('n', '<leader>.', '<cmd>terminal<CR>', { silent = true, desc = 'Open terminal' })
 
--- Close buffer
+-- Some smooth buffer controls
 vim.keymap.set('n', '<S-q>', '<cmd>bd<CR>', { silent = true })
+vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>', { silent = true })
+vim.keymap.set('n', '<S-h>', '<cmd>bprev<CR>', { silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
