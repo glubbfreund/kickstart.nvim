@@ -952,6 +952,7 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.fugitive',
+  require 'kickstart.plugins.rendermarkdown',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
