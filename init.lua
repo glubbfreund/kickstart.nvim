@@ -202,6 +202,10 @@ vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
 vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { silent = true, desc = 'Open netrw' })
 vim.keymap.set('n', '<leader>.', '<cmd>terminal<CR>', { silent = true, desc = 'Open terminal' })
 
+-- Translation key mapping
+vim.keymap.set('n', '<leader>m', '<cmd>Translate DE<CR>', { silent = true, desc = 'Translate to german' })
+vim.keymap.set('v', '<leader>m', '<cmd>Translate DE<CR>', { silent = true, desc = 'Translate to german' })
+
 -- Some smooth buffer controls
 vim.keymap.set('n', '<S-q>', '<cmd>bd<CR>', { silent = true })
 vim.keymap.set('n', '<S-l>', '<cmd>bnext<CR>', { silent = true })
@@ -950,9 +954,10 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.undotree',
-  require 'kickstart.plugins.fugitive',
-  require 'kickstart.plugins.rendermarkdown',
+  require 'custom.plugins.undotree',
+  require 'custom.plugins.fugitive',
+  require 'custom.plugins.rendermarkdown',
+  require 'custom.plugins.translate',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
