@@ -157,6 +157,11 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- netrw settings
+vim.g.netrw_banner = 0 -- remove banner at the top, temporarily enable with I
+vim.g.netrw_keepdir = 0 -- keep cwd
+vim.g.netrw_liststyle = 0 -- 0 - thin, 1 - details 2 - wide, 3 - tree
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -192,6 +197,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Use jj as ESC
 vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
+
+-- Explore key
+vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { silent = true })
+
+-- Close buffer
+vim.keymap.set('n', '<S-q>', '<cmd>bd<CR>', { silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -838,6 +849,13 @@ require('lazy').setup({
       styles = {
         sidebars = 'transparent',
         floats = 'transparent',
+
+        -- Style to be applied to different syntax groups
+        -- Value is any valid attr-list value for `:help nvim_set_hl`
+        comments = { italic = false },
+        keywords = { italic = false },
+        functions = {},
+        variables = {},
       },
     },
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -877,7 +895,9 @@ require('lazy').setup({
       --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      statusline.setup {
+        use_icons = vim.g.have_nerd_font,
+      }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
@@ -926,12 +946,9 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.undotree',
+  require 'kickstart.plugins.fugitive',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
