@@ -950,6 +950,23 @@ require('lazy').setup({
         return '%2l:%-2v'
       end
 
+      -- Print relative path only (doesnt work as expected, though)
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_filename = function()
+        return vim.fn.expand '%:t'
+      end
+
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_fileinfo = function()
+        local filetype = vim.bo.filetype
+
+        if filetype == '' then
+          return ''
+        end
+
+        return string.format(' %s ', filetype)
+      end
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
