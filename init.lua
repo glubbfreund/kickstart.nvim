@@ -992,7 +992,6 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'custom.plugins.undotree',
   require 'custom.plugins.fugitive',
-  require 'custom.plugins.rendermarkdown',
   require 'custom.plugins.translate',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
