@@ -1010,6 +1010,7 @@ require('lazy').setup({
   require 'custom.plugins.undotree',
   require 'custom.plugins.fugitive',
   require 'custom.plugins.translate',
+  require 'custom.plugins.markdown',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
