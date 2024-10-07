@@ -251,6 +251,16 @@ vim.api.nvim_create_autocmd({ 'TermOpen', 'BufEnter' }, {
   end,
 })
 
+-- Remove statusline in terminal buffer
+vim.api.nvim_create_autocmd({ 'TermOpen', 'BufEnter' }, {
+  pattern = { '*' },
+  callback = function()
+    if vim.opt.buftype:get() == 'terminal' then
+      vim.b.ministatusline_disable = true
+    end
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
